@@ -1,0 +1,144 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Group</title>
+</head>
+<body>
+    <h1>Create Group</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Create Group</button>
+    </form>
+    <a href="{% url 'groups_list' %}">Back to Groups List</a>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Group</title>
+    <style>
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #74ebd5, #9face6);
+    background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTAzL2pvYjE1MjRkZXNpZ24tcmVtaXgtMjBhLWEuanBn.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    transition: background 0.5s ease;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+h1 {
+    color: #121212;
+    margin-bottom: 20px;
+    font-size: 2em;
+    animation: fadeIn 1s;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    text-align: left;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #0f0f0f;
+    outline: none;
+}
+
+button {
+    background-color: #1d0000;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+button:hover {
+    background-color: #1f2020;
+    transform: translateY(-2px);
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #0c0c0c;
+    text-decoration: none;
+    border: 1px solid #171717;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-link:hover {
+    background-color: #1a1919;
+    color: white;
+}
+
+.help-text {
+    font-size: 0.85em;
+    color: #888;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Create Group</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Create Group</button>
+        </form>
+        <a href="{% url 'groups_list' %}" class="back-link">Back to Groups List</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,337 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groups List with Calculator</title>
+    <style>
+    
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTAzL2pvYjE1MjRkZXNpZ24tcmVtaXgtMjBhLWEuanBn.jpg');
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            color: #fff;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        h1 {
+            font-size: 42px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+    
+        .create-group-btn {
+            padding: 15px 30px;
+            background-color: #460202;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 50px;
+            border: none;
+            text-decoration: none;
+            margin: 20px 0;
+            box-shadow: 0px 4px 15px rgba(108, 107, 107, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .create-group-btn:hover {
+            background-color: #111111;
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 20px rgba(45, 45, 45, 0.7);
+        }
+
+    
+        .group-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 10px;
+            width: 300px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .group-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+       
+        .group-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .group-card h3 {
+            margin-top: 0;
+        }
+
+        .group-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .group-card ul li {
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .group-card ul li:last-child {
+            border-bottom: none;
+        }
+
+   
+        .highlighted-action {
+            display: inline-block;
+            background-color: #380101;
+            padding: 10px 15px;
+            color: white;
+            text-decoration: none;
+            border-radius: 15px;
+            margin: 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0px 4px 10px rgba(27, 0, 0, 0.3);
+        }
+
+        .highlighted-action:hover {
+            background-color: #1a1a1b;
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 20px rgba(16, 16, 16, 0.5);
+        }
+
+
+        .calculator {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 40px;
+            width: 300px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .calculator button {
+            width: 60px;
+            height: 60px;
+            font-size: 20px;
+            margin: 5px;
+            background: #060000;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .calculator button:hover {
+            background: #e74c3c;
+            transform: scale(1.1);
+        }
+
+        .calculator input {
+            width: 280px;
+            height: 60px;
+            margin-bottom: 10px;
+            font-size: 24px;
+            text-align: right;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+
+        .button-row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .logout {
+            margin-top: 20px;
+            padding: 15px 30px;
+            background-color: #200401;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0px 4px 15px rgba(43, 1, 1, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .logout:hover {
+            background-color: #500901;
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 20px rgba(13, 1, 0, 0.7);
+        }
+        header{
+            width:100%;
+            background-color: #191919;
+            display: flex;
+            margin-right: 60px;
+        }
+        .nav {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center; 
+            margin-bottom: 20px; 
+            margin-right: 40px;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 0px;
+    margin: 0 0px;
+    transition: background-color 0.3s;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    width: 100%;
+}
+
+.logo a {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 8px 12px;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #f55959;
+}
+
+.nav-buttons .btn-nav {
+    padding: 10px 20px;
+    font-size: 1.1em;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    background-color: #ff6b6b;
+    transition: background 0.4s ease, transform 0.3s ease;
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#">SPENDify</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="#calculator">Need Calculator?</a></li>
+            </ul>
+    </header>
+    <h1>Groups</h1>
+    <a href="{% url 'create_group' %}" class="create-group-btn">Create Group</a>
+
+    <div class="group-list">
+        {% for group in groups %}
+            <div class="group-card">
+                <h2>{{ group.name }}</h2>
+                <a href="{% url 'group_detail' group.id %}" class="highlighted-action">View Details</a>
+                <a href="{% url 'add_member' group.id %}" class="highlighted-action">Add Member</a>
+                <a href="{% url 'add_expense' group.id %}" class="highlighted-action">Add Expense</a>
+                
+                <ul>
+                    <h3>Current Group Members</h3>
+                    {% for member in group.members.all %}
+                        <li>{{ member.name }}</li>
+                    {% empty %}
+                        <li>No members added yet</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="calculator" id="calculator">
+    <h2>Calculator</h2>
+   
+        <input type="text" id="calcres" disabled>
+        <br>
+        <button onclick="clearResult()">Clear</button>
+        <br>
+        <button onclick="appendNumber(7)">7</button>
+        <button onclick="appendNumber(8)">8</button>
+        <button onclick="appendNumber(9)">9</button>
+        <button onclick="appendOperator('+')">+</button>
+        <br>
+        <button onclick="appendNumber(4)">4</button>
+        <button onclick="appendNumber(5)">5</button>
+        <button onclick="appendNumber(6)">6</button>
+        <button onclick="appendOperator('-')">-</button>
+        <br>
+        <button onclick="appendNumber(1)">1</button>
+        <button onclick="appendNumber(2)">2</button>
+        <button onclick="appendNumber(3)">3</button>
+        <button onclick="appendOperator('*')">*</button>
+        <br>
+        <button onclick="appendNumber(0)">0</button>
+        <button onclick="appendOperator('/')">/</button>
+        <button onclick="appendOperator('%')">%</button>
+        <button onclick="calculate()">=</button>
+    </div>
+    <a href="{% url 'home' %}" class="logout">Logout</a>
+
+    <script>
+        let result = '';
+
+        function appendNumber(number) {
+            result += number;
+            document.getElementById('calcres').value = result;
+        }
+
+        function appendOperator(operator) {
+            result += operator;
+            document.getElementById('calcres').value = result;
+        }
+
+        function calculate() {
+            try {
+                result = eval(result);
+                document.getElementById('calcres').value = result;
+            } catch (e) {
+                document.getElementById('calcres').value = 'Error';
+            }
+        }
+
+        function clearResult() {
+            result = '';
+            document.getElementById('calcres').value = '';
+        }
+    </script>
+</body>
+</html>
+

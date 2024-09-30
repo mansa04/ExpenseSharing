@@ -1,0 +1,83 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Expense Split Result</title>
+</head>
+<body>
+    <h1>Expense Split Result</h1>
+    <p><strong>Description:</strong> {{ expense.description }}</p>
+    <p><strong>Total Amount:</strong> {{ expense.amount }}</p>
+    <p><strong>Category:</strong> {{ expense.category }}</p>
+    <p><strong>Number of People:</strong> {{ num_people }}</p>
+    <p><strong>Amount per Person:</strong> {{ split_amount }}</p>
+    <a href="{% url 'groups_list' %}">Back to Groups List</a>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Split Result</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            text-align: center;
+        }
+        h1 {
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        strong {
+            color: #333;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            text-decoration: none;
+            background-color: #56ccf2;
+            border-radius: 30px;
+            transition: background 0.3s ease;
+        }
+        .back-link:hover {
+            background-color: #2f80ed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Expense Split Result</h1>
+        <p><strong>Description:</strong> {{ expense.description }}</p>
+        <p><strong>Total Amount:</strong> Rs. {{ expense.amount }}</p>
+        <p><strong>Category:</strong> {{ expense.category }}</p>
+        <p><strong>Number of People:</strong> {{ num_people }}</p>
+        <p><strong>Amount per Person:</strong> Rs. {{ split_amount }}</p>
+        <a href="{% url 'groups_list' %}" class="back-link">Back to Groups List</a>
+    </div>
+</body>
+</html>

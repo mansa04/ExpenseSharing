@@ -1,0 +1,298 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body {
+    background: linear-gradient(to right, #2f0501, #1e0500eb);
+    font-family: Arial, sans-serif;
+    /* background-image: url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTAzL2pvYjE1MjRkZXNpZ24tcmVtaXgtMjBhLWEuanBn.jpg'); */
+    background-repeat: no-repeat;
+    background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTAzL2pvYjE1MjRkZXNpZ24tcmVtaXgtMjBhLWEuanBn.jpg');
+    background-size: cover;
+    opacity: 0.9;
+    display: flex;
+    justify-content: flex-end;
+   
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #e7e1e1;
+}
+
+.container {
+    background: rgb(54, 0, 0);
+    padding: 40px;
+    border-radius: 25px;
+    margin-right: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #290901;
+    outline: none;
+}
+
+.help-text {
+    font-size: 0.9em;
+    color: #6c757d;
+    margin-top: 5px;
+}
+
+button {
+    background: #130400;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background: #600601;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #949597;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Register</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.username.label_tag }}
+                {{ form.username }}
+                <div class="help-text">{{ form.username.help_text }}</div>
+            </div>
+            <div class="form-group">
+                {{ form.email.label_tag }}
+                {{ form.email }}
+                <div class="help-text">{{ form.email.help_text }}</div>
+            </div>
+            <div class="form-group">
+                {{ form.password1.label_tag }}
+                {{ form.password1 }}
+                <div class="help-text">{{ form.password1.help_text }}</div>
+            </div>
+            <div class="form-group">
+                {{ form.password2.label_tag }}
+                {{ form.password2 }}
+                <div class="help-text">{{ form.password2.help_text }}</div>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+        <a href="{% url 'login' %}">Already have an account? Login</a>
+    </div>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #2f0501, #1e0500eb);
+            font-family: Arial, sans-serif;
+            background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTAzL2pvYjE1MjRkZXNpZ24tcmVtaXgtMjBhLWEuanBn.jpg');
+            background-size: cover;
+            display: flex;
+            justify-content: flex-end;
+            height: 100vh;
+            margin: 0;
+            color: #e7e1e1;
+            padding: 30px ;
+        }
+
+        .left-side {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            font-size: large;
+            /* background: rgba(0, 0, 0, 0.4); */
+            opacity: 0;
+            transform: translateY(20px); 
+            animation: fadeInUp 0.9s forwards; 
+            animation-delay: 0.8s; 
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        .container {
+            background: rgb(54, 0, 0);
+            padding: 30px 5%;
+            border-radius: 55px;
+            margin-right: 150px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            height: 600px;
+            margin-top: 70px;
+            display: block;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2, h3 {
+            margin: 0 0 10px;
+        }
+
+        p, li {
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #290901;
+            outline: none;
+        }
+
+        .help-text {
+            font-size: 0.9em;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+
+        button {
+            background: #130400;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background: #600601;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #949597;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+        .sect{
+            width: 100%;
+            display: flex;
+
+        }
+    </style>
+</head>
+<body>
+    <section class="sect">
+        <div class="left-side">
+            <h2>Welcome to Our Platform!</h2>
+            <p>Join us today and start your journey towards success. Sign up now to explore amazing features!</p>
+            <h3>Features</h3>
+            <ul>
+                <li><strong>Exclusive Content:</strong> Gain access to resources only available to members.</li>
+                <li><strong>Personalized Recommendations:</strong> Get tailored suggestions to meet your needs.</li>
+                <li><strong>Community Support:</strong> Connect with like-minded individuals.</li>
+            </ul>
+            <h3>Quick Facts</h3>
+            <p><strong>Over 10,000</strong> registered users and counting!</p>
+            <p><strong>Join us now!</strong></p>
+
+        <h3>Follow Us</h3>
+        <p>Stay connected:</p>
+        <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+    </div>
+
+    <div class="container">
+        <h1>Register</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Register</button>
+        </form>
+        <a href="{% url 'login' %}">Already have an account? Login</a>
+    </div>
+</section>
+</body>
+</html>

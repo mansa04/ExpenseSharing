@@ -1,0 +1,150 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Member</title>
+</head>
+<body>
+    <h1>Add Member to {{ group.name }}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Member</button>
+    </form>
+    <a href="{% url 'groups_list' %}">Back to Groups List</a>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Member</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTAzL2pvYjE1MjRkZXNpZ24tcmVtaXgtMjBhLWEuanBn.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+h1 {
+    color: #0b0b0b;
+    margin-bottom: 20px;
+    font-size: 2em;
+    transition: transform 0.3s;
+}
+
+h1:hover {
+    transform: scale(1.05);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+form p {
+    text-align: left;
+}
+
+button {
+    background-color: #050505;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #2a2929;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #121212;
+    text-decoration: none;
+    border: 2px solid #0c0c0c;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-link:hover {
+    background-color: #0a0a0a;
+    color: white;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1em;
+    transition: border-color 0.3s;
+    margin-bottom: 15px; 
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+select:focus {
+    border-color: #0c0c0c;
+    outline: none;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Member to: {{ group.name }}</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Add Member</button>
+        </form>
+        <a href="{% url 'groups_list' %}" class="back-link">Back to Groups List</a>
+    </div>
+</body>
+</html>

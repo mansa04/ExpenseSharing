@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details of: {{ group.name }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2em;
+            color: #333;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: #0066cc;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        h2 {
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 20px;
+            color: #444;
+        }
+
+        .members-list {
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .member-item {
+            background-color: #f9f9f9;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-weight: bold;
+        }
+
+        .no-members {
+            color: #999;
+        }
+
+        .expenses-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .expenses-table th, .expenses-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .expenses-table th {
+            background-color: #f2f2f2;
+            font-size: 1.1em;
+        }
+
+        .expense-item:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .expense-category, .expense-amount, .expense-date, .expense-participants, .expense-split-amount {
+            font-size: 0.95em;
+        }
+
+        .expense-amount, .expense-split-amount {
+            color: #008000;
+            font-weight: bold;
+        }
+
+        .no-expenses {
+            text-align: center;
+            color: #999;
+        }
+
+        @media (max-width: 768px) {
+            .expenses-table, .expenses-table th, .expenses-table td {
+                font-size: 0.85em;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .header h1 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>{{ group.name }}</h1>
+            <a href="{% url 'groups_list' %}" class="back-link">Back to Groups</a>
+        </header>
+
+        <section class="members-section">
+            <h2>Members:</h2>
+            <div class="members-list">
+                {% for member in members %}
+                    <div class="member-item">{{ member.name }}</div>
+                {% empty %}
+                    <div class="member-item no-members">No members added yet.</div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="expenses-section">
+            <h2>Expenses:</h2>
+            <table class="expenses-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Split Among</th>
+                        <th>Amount per Person</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for expense in expenses %}
+                        <tr class="expense-item">
+                            <td class="expense-category">{{ expense.category.name }}</td>
+                            <td class="expense-amount">Rs.{{ expense.amount }}</td>
+                            <td class="expense-date">{{ expense.date }}</td>
+                            <td class="expense-participants">
+                                
+                                {% for participant in expense.participants.all %}
+                                    {{ participant.name }}{% if not forloop.last %}, {% endif %}
+                                {% endfor %}
+                            </td>
+                            <td class="expense-split-amount">
+                                
+                                Rs. {{ expense.split_amount_value }}
+                            </td>
+                            <td>{{ expense.description }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr class="no-expenses">
+                            <td colspan="5">No expenses recorded yet.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+        <div class="action-buttons">
+            <a href="{% url 'delete_group' group.id %}" class="delete" onclick="return confirm('Are you sure you want to delete this group?');">Delete Group</a>
+        </div>
+
+    </div>
+</body>
+</html>

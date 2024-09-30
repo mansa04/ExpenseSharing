@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTAzL2pvYjE1MjRkZXNpZ24tcmVtaXgtMjBhLWEuanBn.jpg');
+            color: #fff;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main-header {
+            background: rgba(0, 0, 0, 0.7);
+            width: 100%;
+            padding: 15px 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            font-size: 28px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #f4f3f0;
+        }
+
+        .nav-links {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fdfdfb;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(15px);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            color: #fcfbf6;
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .content {
+                margin: 20px;
+            }
+        }
+
+        .main-header {
+    background-color: #2e0101;
+    padding: 20px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.logo a {
+    color: white;
+    font-size: 1.8em;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.logo a:hover {
+    color: #515151;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 0;
+    background: #c10101;
+    transition: width 0.4s ease;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#">SPENDify</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'contact' %}">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class="content">
+        <h1>About Us</h1>
+        <p>At SPENDify, we believe in making shared expenses simple and transparent. Our app is designed to help users manage their finances with friends and family effortlessly.</p>
+        
+        <div class="card">
+            <h2>Our Mission</h2>
+            <p>To provide an intuitive platform that simplifies the process of splitting bills, tracking expenses, and promoting financial transparency.</p>
+        </div>
+
+        <div class="card">
+            <h2>Our Vision</h2>
+            <p>To be the leading app in shared expense management, empowering users to manage their finances easily and collaboratively.</p>
+        </div>
+
+        <div class="card">
+            <h2>Our Team</h2>
+            <p>We are a dedicated team of developers and financial experts committed to creating a seamless user experience. Our goal is to help you manage shared expenses with ease.</p>
+        </div>
+    </div>
+</body>
+</html>
